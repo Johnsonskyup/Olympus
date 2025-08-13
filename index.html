@@ -1,89 +1,88 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olympus.com</title>
-<!-- Tailwind CSS for modern styling -->
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body, html {
-height: 100%;
-margin: 0;
-font-family: 'Inter', sans-serif;
-line-height: 1.6;
-color: #e2e8f0; /* light gray text */
-background-color: #1a202c; /* dark gray background */
-}
-#loading-page {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-flex-direction: column;
-background-color: #1a202c;
-}
-.cube-loader {
-position: relative;
-width: 80px;
-height: 80px;
-perspective: 150px;
-}
-.cube {
-width: 100%;
-height: 100%;
-position: absolute;
-transform-style: preserve-3d;
-animation: rotateCube 4s infinite linear;
-}
-.cube-face {
-position: absolute;
-width: 80px;
-height: 80px;
-background-color: rgba(66, 153, 225, 0.7); /* blue with transparency */
-border: 2px solid #4299e1;
-box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
-}
-.cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(40px); }
-.cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(40px); }
-.cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(40px); }
-.cube-face:nth-child(4) { transform: rotateY(270deg) translateZ(40px); }
-.cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(40px); }
-.cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(40px); }
-@keyframes rotateCube {
-0% { transform: rotateX(0deg) rotateY(0deg); }
-100% { transform: rotateX(360deg) rotateY(360deg); }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โอลิมปัส.com</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0; /* light gray text */
+            background-color: #000000; /* dark gray background */
+        }
+        #loading-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #000000;
+        }
+
+        /* Wrapper for the loader and its content */
+        .loader-wrapper {
+            position: relative;
+            width: 200px; /* ขนาดของคอนเทนเนอร์โหลดดิ้งทั้งหมด */
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+        }
+
+        /* Simple Spinning Circle Loader CSS */
+        .loader {
+            width: 180px; /* ขนาดของวงกลมโหลดดิ้ง */
+            height: 180px;
+            border: 12px solid #343434; /* สีขอบวงกลม */
+            border-top: 12px solid #e19f05; /* สีขอบที่หมุน */
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            animation: spin 1.5s linear infinite; /* อนิเมชั่นหมุน */
+        }
+        
+        /* Keyframes for the spinning animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Positioning for the image inside the loader */
+        .loader-image {
+            position: absolute;
+            /* Use Tailwind classes for width/height and centering */
+            /* w-32 = 128px, h-32 = 128px */
+            /* object-contain ensures the image scales without distortion */
+        }
+         b {
+    color: green; /* กำหนดสีให้กับแท็ก b */
+  }
+    </style>
 </head>
 <body class="bg-gray-900">
 
-<div id="loading-page">
-<!-- Website name -->
-<h1 class="mb-10 text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400">โอลิมปัส.com</h1>
+    <div id="loading-page">
+        <div class="loader-wrapper">
+            <!-- Loader -->
+            <div class="loader"></div>
+            <!-- Image Logo inside the loader -->
+            <img src="https://i.imgur.com/sE2kXmj.png" alt="Olympus.com Logo" class="loader-image w-32 h-32 object-contain">
+        </div>
+        
+        <p class="mt-6 text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">ກຳລັງທ່ານເຂົ້າສຼ່ <b> WhatsApp </b> </p>
+    </div>
 
-<div class="cube-loader">
-<div class="cube">
-<div class="cube-face"></div>
-<div class="cube-face"></div>
-<div class="cube-face"></div>
-<div class="cube-face"></div>
-<div class="cube-face"></div>
-<div class="cube-face"></div>
-</div>
-</div>
-
-<p class="mt-6 text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">กำลังเข้าสู่หน้า WhatsApp...</p>
-</div>
-
-<script>
-// JavaScript will wait for 5 seconds (5000ms) then redirect to WhatsApp
-setTimeout(function() {
-// **ส่วนสำคัญ: เปลี่ยนเบอร์โทรศัพท์และข้อความใน URL**
-window.location.href = "https://wa.me/8562055498968?text=....";
-}, 5000); // 5000ms is 5 seconds
-</script>
+    <script>
+        // JavaScript will wait for 5 seconds (5000ms) then redirect to 
+        setTimeout(function() {
+            // **ส่วนสำคัญ: เปลี่ยนเบอร์โทรศัพท์และข้อความใน URL**
+            window.location.href = "https://wa.me/8562054325803?";
+        }, 5000); // 5000ms is 5 seconds
+    </script>
 
 </body>
 </html>
-
