@@ -13,75 +13,72 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #e2e8f0; /* light gray text */
-            background-color: #000000; /* dark gray background */
+            background-color: #000000; /* เปลี่ยนเป็นสีดำสนิท */
         }
         #loading-page {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
-            background-color: #000000;
+            flex-direction: column; /* Stack items vertically */
+            background-color: #000000; /* เปลี่ยนเป็นสีดำสนิท */
+            gap: 2rem; /* กำหนดระยะห่างระหว่างแต่ละองค์ประกอบ (เท่ากับ mb-8 หรือ 32px) */
         }
 
-        /* Wrapper for the loader and its content */
-        .loader-wrapper {
-            position: relative;
-            width: 200px; /* ขนาดของคอนเทนเนอร์โหลดดิ้งทั้งหมด */
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
-        }
-
-        /* Simple Spinning Circle Loader CSS */
+        /* ----- Progress Bar Loader CSS ----- */
         .loader {
-            width: 180px; /* ขนาดของวงกลมโหลดดิ้ง */
-            height: 180px;
-            border: 12px solid #343434; /* สีขอบวงกลม */
-            border-top: 12px solid #e19f05; /* สีขอบที่หมุน */
-            border-radius: 50%; /* ทำให้เป็นวงกลม */
-            animation: spin 1.5s linear infinite; /* อนิเมชั่นหมุน */
+            width: 250px; /* ความกว้างของแท่งดาวน์โหลด */
+            height: 10px; /* ความสูงของแท่งดาวน์โหลด */
+            background-color: #4a5568; /* สีพื้นหลังของแท่ง (สีเทาเข้ม) */
+            border-radius: 5px; /* ทำให้มุมมน */
+            overflow: hidden; /* ซ่อนส่วนที่เกินขอบ */
+        }
+
+        .loader::before {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 0%; /* เริ่มต้นที่ 0% */
+            background: #25d366; /* เปลี่ยนเป็นสีเขียวของ WhatsApp */
+            animation: loadProgress 3s linear forwards; /* เปลี่ยนระยะเวลาอนิเมชั่นเป็น 3 วินาที */
         }
         
-        /* Keyframes for the spinning animation */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Keyframes for the loading progress animation */
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
         }
+        /* ----- End of Progress Bar Loader CSS ----- */
 
-        /* Positioning for the image inside the loader */
+        /* Styling for the image */
         .loader-image {
-            position: absolute;
-            /* Use Tailwind classes for width/height and centering */
-            /* w-32 = 128px, h-32 = 128px */
+            /* w-64 = 256px, h-64 = 256px */
             /* object-contain ensures the image scales without distortion */
+            /* Tailwind classes for width/height and responsiveness are applied directly in HTML */
         }
-         b {
+          b {
     color: green; /* กำหนดสีให้กับแท็ก b */
   }
     </style>
 </head>
-<body class="bg-gray-900">
+<body class="bg-black">
 
     <div id="loading-page">
-        <div class="loader-wrapper">
-            <!-- Loader -->
-            <div class="loader"></div>
-            <!-- Image Logo inside the loader -->
-            <img src="https://i.imgur.com/sE2kXmj.png" alt="Olympus.com Logo" class="loader-image w-32 h-32 object-contain">
-        </div>
+        <!-- Image Logo -->
+        <img src="https://i.imgur.com/sE2kXmj.png" alt="Olympus.com Logo" class="loader-image w-64 h-64 object-contain">
         
-        <p class="mt-6 text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">ກຳລັງທ່ານເຂົ້າສຼ່ <b> WhatsApp </b> </p>
+        <!-- Loader (Progress Bar) -->
+        <div class="loader"></div>
+        
+        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">ກຳລັງນຳທ່ານໄປຍັງ <b>WhatsApp...</b></p>
     </div>
 
     <script>
-        // JavaScript will wait for 5 seconds (5000ms) then redirect to 
+        // JavaScript will wait for 3 seconds (3000ms) then redirect to WhatsApp
         setTimeout(function() {
             // **ส่วนสำคัญ: เปลี่ยนเบอร์โทรศัพท์และข้อความใน URL**
             window.location.href = "https://wa.me/8562054325803?";
-        }, 5000); // 5000ms is 5 seconds
+        }, 3000); // 3000ms is 3 seconds
     </script>
 
 </body>
