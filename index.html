@@ -25,30 +25,49 @@
             gap: 2rem; /* กำหนดระยะห่างระหว่างแต่ละองค์ประกอบ (เท่ากับ mb-8 หรือ 32px) */
         }
 
-        /* ----- Progress Bar Loader CSS ----- */
+        /* ----- Block Loader CSS ----- */
         .loader {
-            width: 250px; /* ความกว้างของแท่งดาวน์โหลด */
-            height: 10px; /* ความสูงของแท่งดาวน์โหลด */
-            background-color: #4a5568; /* สีพื้นหลังของแท่ง (สีเทาเข้ม) */
-            border-radius: 5px; /* ทำให้มุมมน */
-            overflow: hidden; /* ซ่อนส่วนที่เกินขอบ */
+            display: flex; /* ใช้ flexbox เพื่อจัดเรียงบล็อกแนวนอน */
+            gap: 8px; /* ระยะห่างระหว่างบล็อก */
+            width: 250px; /* ความกว้างโดยรวมของกลุ่มบล็อก */
+            justify-content: center; /* จัดกึ่งกลางบล็อกในแนวนอน */
+            align-items: center; /* จัดกึ่งกลางบล็อกในแนวตั้ง */
         }
 
-        .loader::before {
-            content: '';
-            display: block;
-            height: 100%;
-            width: 0%; /* เริ่มต้นที่ 0% */
-            background: #25d366; /* เปลี่ยนเป็นสีเขียวของ WhatsApp */
-            animation: loadProgress 3s linear forwards; /* เปลี่ยนระยะเวลาอนิเมชั่นเป็น 3 วินาที */
+        .loader .block {
+            width: 30px; /* ความกว้างของแต่ละบล็อก */
+            height: 30px; /* ความสูงของแต่ละบล็อก */
+            background-color: #25d366; /* สีเขียวของ WhatsApp */
+            border-radius: 4px; /* ทำให้มุมมนเล็กน้อย */
+            animation: blockLoad 1.5s infinite ease-in-out; /* อนิเมชั่นหลักสำหรับบล็อก */
         }
-        
-        /* Keyframes for the loading progress animation */
-        @keyframes loadProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
+
+        /* กำหนดดีเลย์สำหรับแต่ละบล็อกเพื่อให้เคลื่อนไหวเหลื่อมกัน */
+        .loader .block:nth-child(2) {
+            animation-delay: 0.1s;
         }
-        /* ----- End of Progress Bar Loader CSS ----- */
+        .loader .block:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        .loader .block:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        .loader .block:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        /* Keyframes for the block animation */
+        @keyframes blockLoad {
+            0%, 100% {
+                transform: scaleY(0.4); /* เริ่มต้นและจบด้วยขนาดที่เล็กกว่า */
+                opacity: 0.6; /* โปร่งแสงเล็กน้อย */
+            }
+            50% {
+                transform: scaleY(1); /* ขยายใหญ่ขึ้นในกลางอนิเมชั่น */
+                opacity: 1; /* ทึบแสง */
+            }
+        }
+        /* ----- End of Block Loader CSS ----- */
 
         /* Styling for the image */
         .loader-image {
@@ -56,7 +75,7 @@
             /* object-contain ensures the image scales without distortion */
             /* Tailwind classes for width/height and responsiveness are applied directly in HTML */
         }
-          b {
+                 b {
     color: green; /* กำหนดสีให้กับแท็ก b */
   }
     </style>
@@ -67,10 +86,16 @@
         <!-- Image Logo -->
         <img src="https://i.imgur.com/sE2kXmj.png" alt="Olympus.com Logo" class="loader-image w-64 h-64 object-contain">
         
-        <!-- Loader (Progress Bar) -->
-        <div class="loader"></div>
+        <!-- Loader (Block by Block Animation) -->
+        <div class="loader">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+        </div>
         
-        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">ກຳລັງນຳທ່ານໄປຍັງ <b>WhatsApp...</b></p>
+        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-400">ກຳລັງນຳທ່ານໄປຍັງ  <b> WhatsApp..</b></p>
     </div>
 
     <script>
