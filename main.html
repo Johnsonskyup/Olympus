@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โอลิมปัส.com</title>
-    <!-- Tailwind CSS for modern styling -->
+    <title>Olypassss</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body, html {
@@ -12,37 +11,35 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #e2e8f0; /* light gray text */
-            background-color: #000000; /* เปลี่ยนเป็นสีดำสนิท */
+            color: #e2e8f0; 
+            background-color: #000000;
         }
         #loading-page {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column; /* Stack items vertically */
-            background-color: #000000; /* เปลี่ยนเป็นสีดำสนิท */
-            gap: 2rem; /* กำหนดระยะห่างระหว่างแต่ละองค์ประกอบ (เท่ากับ mb-8 หรือ 32px) */
+            flex-direction: column;
+            background-color: #000000; 
+            gap: 2rem;
         }
 
-        /* ----- Block Loader CSS ----- */
         .loader {
-            display: flex; /* ใช้ flexbox เพื่อจัดเรียงบล็อกแนวนอน */
-            gap: 8px; /* ระยะห่างระหว่างบล็อก */
-            width: 250px; /* ความกว้างโดยรวมของกลุ่มบล็อก */
-            justify-content: center; /* จัดกึ่งกลางบล็อกในแนวนอน */
-            align-items: center; /* จัดกึ่งกลางบล็อกในแนวตั้ง */
+            display: flex; 
+            gap: 8px; 
+            width: 250px; 
+            justify-content: center; 
+            align-items: center; 
         }
 
         .loader .block {
-            width: 30px; /* ความกว้างของแต่ละบล็อก */
-            height: 30px; /* ความสูงของแต่ละบล็อก */
-            background-color: #25d366; /* สีเขียวของ WhatsApp */
-            border-radius: 4px; /* ทำให้มุมมนเล็กน้อย */
-            animation: blockLoad 1.5s infinite ease-in-out; /* อนิเมชั่นหลักสำหรับบล็อก */
+            width: 30px; 
+            height: 30px; 
+            background-color: #25d366;
+            border-radius: 4px; 
+            animation: blockLoad 1.5s infinite ease-in-out; 
         }
 
-        /* กำหนดดีเลย์สำหรับแต่ละบล็อกเพื่อให้เคลื่อนไหวเหลื่อมกัน */
         .loader .block:nth-child(2) {
             animation-delay: 0.1s;
         }
@@ -56,27 +53,21 @@
             animation-delay: 0.4s;
         }
 
-        /* Keyframes for the block animation */
         @keyframes blockLoad {
             0%, 100% {
-                transform: scaleY(0.4); /* เริ่มต้นและจบด้วยขนาดที่เล็กกว่า */
-                opacity: 0.6; /* โปร่งแสงเล็กน้อย */
+                transform: scaleY(0.4); 
+                opacity: 0.6; 
             }
             50% {
-                transform: scaleY(1); /* ขยายใหญ่ขึ้นในกลางอนิเมชั่น */
-                opacity: 1; /* ทึบแสง */
+                transform: scaleY(1); 
+                opacity: 1;
             }
         }
-        /* ----- End of Block Loader CSS ----- */
-
-        /* Styling for the image */
         .loader-image {
-            /* w-64 = 256px, h-64 = 256px */
-            /* object-contain ensures the image scales without distortion */
-            /* Tailwind classes for width/height and responsiveness are applied directly in HTML */
+           
         }
                  b {
-    color: green; /* กำหนดสีให้กับแท็ก b */
+    color: green; 
   }
     </style>
 </head>
@@ -99,15 +90,16 @@
     </div>
 
     <script>
-        // JavaScript will wait for 3 seconds (3000ms) then redirect to WhatsApp
+      
         setTimeout(function() {
-            // **ส่วนสำคัญ: เปลี่ยนเบอร์โทรศัพท์และข้อความใน URL**
+        
             window.location.href = "https://wa.me/8562054325803?";
-        }, 2000); // 3000ms is 3 seconds
+        }, 2000); 
     </script>
 
 </body>
 </html>
+
 
 
 
